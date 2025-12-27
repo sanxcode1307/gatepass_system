@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        body {
+            background: #f3f6fa;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        .dashboard-container {
+            padding: 40px 20px;
+        }
+        
+        .card-custom {
+            border: none;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+        
+        .card-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #394b59;
+            margin-bottom: 15px;
+            border-left: 4px solid #0d6efd;
+            padding-left: 10px;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #566573;
+        }
+        
+        .badge-custom {
+            font-size: 14px;
+            padding: 6px 10px;
+            border-radius: 8px;
+        }
+        
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="container dashboard-container">
+        
+        <h2 class="mb-4 fw-bold text-primary">
+            <i class="fa-solid fa-user-graduate"></i> Student Dashboard
+        </h2>
+        
+        <!-- ROW 1 -->
+        <div class="row g-4">
+            
+            <!-- Basic Info -->
+            <div class="col-md-6">
+                <div class="card card-custom p-4">
+                    <h4 class="section-title"><i class="fa-solid fa-id-card"></i> Basic Information</h4>
+                    
+                    <p><span class="info-label">Full Name:</span> {{ profile.full_name }}</p>
+                    <p><span class="info-label">Gender:</span> {{ profile.gender }}</p>
+                    <p><span class="info-label">Mobile:</span> {{ profile.mobile }}</p>
+                    <p><span class="info-label">PRN:</span> {{ profile.prn }}</p>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="col-md-6">
+                <div class="card card-custom p-4">
+                    <h4 class="section-title"><i class="fa-solid fa-book-open"></i> Education Details</h4>
+                    
+                    <p><span class="info-label">Education Level:</span> {{ profile.education_level }}</p>
+                    
+                    <p>
+                        <span class="info-label">Year:</span>
+                        <span class="badge bg-primary badge-custom">{{ profile.year }}</span>
+                    </p>
+                    
+                    <p>
+                        <span class="info-label">Semester:</span>
+                        <span class="badge bg-info text-dark badge-custom">{{ profile.sem }}</span>
+                    </p>
+                    
+                    <p><span class="info-label">Department:</span> {{ profile.department }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ROW 2 -->
+        <div class="row g-4 mt-2">
+            
+            <!-- Hostel Info -->
+            <div class="col-md-6">
+                <div class="card card-custom p-4">
+                    <h4 class="section-title"><i class="fa-solid fa-building"></i> Hostel Information</h4>
+                    
+                    <p>
+                        <span class="info-label">Hostel:</span>
+                        <span class="badge bg-warning text-dark badge-custom">{{ profile.hostel }}</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Parent Info -->
+            <div class="col-md-6">
+                <div class="card card-custom p-4">
+                    <h4 class="section-title"><i class="fa-solid fa-users"></i> Parent / Guardian</h4>
+                    
+                    <p><span class="info-label">Parent Name:</span> {{ profile.parent_name }}</p>
+                    <p><span class="info-label">Parent Mobile:</span> {{ profile.parent_mobile }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Address -->
+        <div class="row g-4 mt-2">
+            <div class="col-md-12">
+                <div class="card card-custom p-4">
+                    <h4 class="section-title"><i class="fa-solid fa-location-dot"></i> Address Details</h4>
+                    
+                    <p><span class="info-label">Address:</span> {{ profile.address }}</p>
+                    <p><span class="info-label">City:</span> {{ profile.city }}</p>
+                    <p><span class="info-label">District:</span> {{ profile.district }}</p>
+                    <p><span class="info-label">Pincode:</span> {{ profile.pincode }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="login-box">
+
+    <!-- Home Icon -->
+    <a href="{% url 'home' %}" class="home-icon" title="Go to Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5V14a.5.5 0 0 0 .5.5H6a.5.5 0 0 0 .5-.5V10h3v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5V7.5a.5.5 0 0 0-.146-.354l-6-6z"/>
+        </svg>
+    </a>
+</div>
+        
+    </div>
+    
+</div>
+
+<a href="{%url 'apply_gatepass' %}" class="btn btn-primary">  
+    Apply Gatepass
+</a>
+
+</div>
+
+
+
+</body>
+</html>
